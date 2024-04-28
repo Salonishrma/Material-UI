@@ -21,23 +21,23 @@ import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
-const drawerWidthLarge = 220; // For larger screens
-const drawerWidthSmall = 190; // For smaller screens
+const drawerWidthLarge = 220; 
+const drawerWidthSmall = 190; 
 
 export default function ResponsiveDrawer({ open, onClose, children }) {
   const drawerContent = (
     <Box
       sx={{
-        backgroundColor: '#002244', // Consistent background color
+        backgroundColor: '#002244', 
         color: 'white',
         padding: 2,
-        paddingTop: 8, // Adjust to remove unwanted vertical gaps
+        paddingTop: 8, 
       }}
     >
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'column', // Vertical layout
+          flexDirection: 'column', 
           justifyContent: 'center',
           alignItems: 'center',
           backgroundColor: '#073980',
@@ -113,7 +113,7 @@ export default function ResponsiveDrawer({ open, onClose, children }) {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidthLarge,
-              backgroundColor: 'rgb(25,25,112)', // Consistent background color
+              backgroundColor: '#002244', 
             },
           }}
         >
@@ -130,7 +130,7 @@ export default function ResponsiveDrawer({ open, onClose, children }) {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidthSmall,
-              backgroundColor: '#002244', // Consistent background color
+              backgroundColor: '#002244', 
             },
           }}
         >

@@ -16,8 +16,8 @@ function App() {
       <CssBaseline />
       <ProminentAppBar onMenuClick={toggleDrawer} />
       <ResponsiveDrawer
-        open={drawerOpen} // Pass the drawer open state
-        onClose={toggleDrawer} // Pass the toggle function to handle closing
+        open={drawerOpen} 
+        onClose={toggleDrawer} 
       >
         <Box sx={{ flexGrow: 1, paddingTop: '84px' }}>
           <Dashboard />

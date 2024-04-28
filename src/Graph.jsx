@@ -10,7 +10,6 @@ import TabletAndroidIcon from '@mui/icons-material/TabletAndroid';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-// BarChart data and settings
 const chartSetting = {
   width: 460,
   height: 300,
@@ -34,7 +33,6 @@ const dataset = [
   { sale1: 19, sale2: 15, month: 'Dec' },
 ];
 
-// PieChart data and settings
 const data1 = [
   { label: 'Group A', value: 60 },
   { label: 'Group B', value: 15 },
@@ -44,18 +42,18 @@ const data1 = [
 const pieColors = ['#4169E1', 'green', 'orange'];
 
 export default function IntegratedGraph() {
-  const isSmallScreen = useMediaQuery('(max-width:600px)'); // Phone screen check
+  const isSmallScreen = useMediaQuery('(max-width:600px)'); 
 
   return (
     <Box sx={{ padding: '10px 0', marginTop: '20px',marginLeft:'-30px' }}>
       <Grid
         container
-        spacing={isSmallScreen ? 1 : 3} // Reduced spacing on small screens
-        direction={isSmallScreen ? 'column' : 'row'} // Column layout for small screens
+        spacing={isSmallScreen ? 1 : 3}
+        direction={isSmallScreen ? 'column' : 'row'} 
         justifyContent={isSmallScreen ? 'center' : 'space-around'}
         alignItems={isSmallScreen ? 'stretch' : 'center'}
       >
-        {/* Sales Section with BarChart */}
+        
         <Grid item xs={isSmallScreen ? 12 : 6}>
           <Box
             sx={{
@@ -64,8 +62,8 @@ export default function IntegratedGraph() {
               backgroundColor: 'white',
               borderRadius: '10px',
               boxShadow: 3,
-              height: '400px', // Fixed height
-              width: isSmallScreen ? '100%' : '420px', // Full width on small screens
+              height: '400px', 
+              width: isSmallScreen ? '100%' : '420px', 
               margin: isSmallScreen ? '0 auto' : 'auto',
             }}
           >
@@ -110,7 +108,7 @@ export default function IntegratedGraph() {
           </Box>
         </Grid>
 
-        {/* Traffic Source Section with PieChart and Icons */}
+       
         <Grid item xs={isSmallScreen ? 12 : 4}>
           <Box
             sx={{
@@ -118,8 +116,8 @@ export default function IntegratedGraph() {
               backgroundColor: 'white',
               borderRadius: '10px',
               boxShadow: 3,
-              height: '400px', // Fixed height
-              width: isSmallScreen ? '100%' : '270px', // Full width on small screens
+              height: '400px', 
+              width: isSmallScreen ? '100%' : '270px', 
               margin: isSmallScreen ? '0 auto' : '-10px',
             }}
           >
@@ -127,19 +125,19 @@ export default function IntegratedGraph() {
               variant="h6"
               sx={{
                 fontWeight: 'bold',
-                textAlign: isSmallScreen ? 'left' : 'left', // Centered text for small screens
+                textAlign: isSmallScreen ? 'left' : 'left', 
               }}
             >
               Traffic Source
             </Typography>
 
             <PieChart
-              width={isSmallScreen ? 180 : 250} // Smaller width on small screens
-              height={isSmallScreen ? 180 : 250} // Smaller height on small screens
+              width={isSmallScreen ? 180 : 250} 
+              height={isSmallScreen ? 180 : 250} 
             >
               <Pie
                 data={data1}
-                outerRadius={isSmallScreen ? 60 : 80} // Adjusted outer radius for small screens
+                outerRadius={isSmallScreen ? 60 : 80} 
                 innerRadius={isSmallScreen ? 30 : 40}
                 startAngle={180}
                 endAngle={-180}
@@ -154,7 +152,7 @@ export default function IntegratedGraph() {
             <Box
               sx={{
                 display: 'flex',
-                flexDirection: isSmallScreen ? 'row' : 'row', // Vertical layout for small screens
+                flexDirection: isSmallScreen ? 'row' : 'row', 
                 justifyContent: isSmallScreen ? 'center' : 'space-between',
                 alignItems: isSmallScreen ? 'center' : 'stretch',
               }}

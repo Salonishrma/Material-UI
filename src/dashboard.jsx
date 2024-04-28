@@ -17,7 +17,7 @@ import GroupIcon from '@mui/icons-material/Groups';
 import SettingsIcon from '@mui/icons-material/Settings';
 import BitcoinIcon from '@mui/icons-material/Token';
 import Slider from '@mui/material/Slider';
-import Graph from './Graph'; // Importing the Graph component
+import Graph from './Graph';
 
 export default function Dashboard() {
   return (
@@ -38,35 +38,30 @@ export default function Dashboard() {
       })}
     >
       <Toolbar>
-        {/* Search Icon */}
+      
         <IconButton size="large" color="inherit">
-          <SearchIcon sx={{ color: 'rgb(192, 192, 192)' }} /> {/* Set SearchIcon color */}
+          <SearchIcon sx={{ color: 'rgb(192, 192, 192)' }} />
         </IconButton>
 
-        {/* Search InputBase */}
+        
         <InputBase
           placeholder="Search..."
           sx={{
             ml: 1,
             flex: 1,
-            color: 'rgb(192, 192, 192)', // Set search input color
+            color: 'rgb(192, 192, 192)', 
           }}
           inputProps={{ 'aria-label': 'search' }}
         />
 
         <Box sx={{ flexGrow: 1 }} />
-
-        {/* Contact Icon */}
         <IconButton size="large" color="inherit">
-          <ContactsIcon sx={{ color: 'grey' }} /> {/* Set ContactsIcon color */}
+          <ContactsIcon sx={{ color: 'grey' }} /> 
+        </IconButton>
+        <IconButton size="large" color="inherit">
+          <NotificationsIcon sx={{ color: 'grey' }} /> 
         </IconButton>
 
-        {/* Notification Icon */}
-        <IconButton size="large" color="inherit">
-          <NotificationsIcon sx={{ color: 'grey' }} /> {/* Set NotificationsIcon color */}
-        </IconButton>
-
-        {/* User Avatar */}
         <Avatar
           alt="Remy Sharp"
           src="https://t4.ftcdn.net/jpg/05/11/55/91/360_F_511559113_UTxNAE1EP40z1qZ8hIzGNrB0LwqwjruK.jpg"
@@ -78,7 +73,6 @@ export default function Dashboard() {
       <Box sx={{  paddingLeft: '210px', marginTop: '-10px'
          }}>
         <Grid container spacing={2}>
-          {/* First Card */}
           <Grid item xs={12} sm={3}>
             <Card sx={{ minHeight: '50px'}}>
               <CardContent>
@@ -106,8 +100,6 @@ export default function Dashboard() {
               </CardContent>
             </Card>
           </Grid>
-
-          {/* Second Card */}
           <Grid item xs={12} sm={3}>
             <Card sx={{ minHeight: '50px' }}>
               <CardContent>
@@ -134,8 +126,6 @@ export default function Dashboard() {
               </CardContent>
             </Card>
           </Grid>
-
-          {/* Third Card */}
           <Grid item xs={12} sm={3}>
             <Card sx={{ minHeight: '50px' }}>
               <CardContent>
@@ -161,8 +151,6 @@ export default function Dashboard() {
               </CardContent>
             </Card>
           </Grid>
-
-          {/* Fourth Card */}
           <Grid item xs={12} sm={3}>
             <Card sx={{ minHeight: '50px'}}>
               <CardContent>
@@ -189,8 +177,6 @@ export default function Dashboard() {
               </CardContent>
             </Card>
           </Grid>
-
-          {/* Include the Graph component */}
           <Grid item xs={12}>
             <Graph />
           </Grid>

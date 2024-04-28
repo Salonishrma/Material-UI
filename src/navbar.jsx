@@ -20,7 +20,7 @@ export default function ProminentAppBar({ onMenuClick, onCloseClick, onLeftArrow
       }}
     >
       <Toolbar>
-        {/* Menu Icon */}
+    
         <IconButton
           size="large"
           edge="start"
@@ -36,45 +36,44 @@ export default function ProminentAppBar({ onMenuClick, onCloseClick, onLeftArrow
           MUI
         </Typography>
 
-        {/* Left Arrow */}
+   
         <IconButton
           size="large"
           color="inherit"
           aria-label="back"
           onClick={onLeftArrowClick}
-          sx={{ mr: 2, color: 'rgb(192, 192, 192)' }} // Set arrow color
+          sx={{ mr: 2, color: 'rgb(192, 192, 192)' }}
         >
           <ChevronLeftIcon />
         </IconButton>
 
-        {/* Right Arrow */}
+        
         <IconButton
           size="large"
           color="inherit"
           aria-label="forward"
           onClick={onRightArrowClick}
-          sx={{ mr: 2, color: 'rgb(192, 192, 192)' }} // Set arrow color
+          sx={{ mr: 2, color: 'rgb(192, 192, 192)' }} 
         >
           <ChevronRightIcon />
         </IconButton>
 
-        {/* More Icon */}
         <IconButton
           size="large"
           color="inherit"
           aria-label="more options"
-          sx={{ color: 'grey' }} // Set MoreIcon color to grey
+          sx={{ color: 'grey' }} 
         >
           <MoreIcon />
         </IconButton>
 
-        {/* Close Icon */}
+        
         <IconButton
           size="large"
           color="inherit"
           aria-label="close"
           onClick={onCloseClick}
-          sx={{ color: 'grey' }} // Set CloseIcon color to grey
+          sx={{ color: 'grey' }} 
         >
           <CloseIcon />
         </IconButton>
