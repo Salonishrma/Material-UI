@@ -58,9 +58,9 @@ const Dashboard = () => {
           zIndex: theme.zIndex.drawer,
           paddingLeft: '40px',
           width: {
-            xs: '74%',
+            xs: '60%',
             sm: '60%',
-            md: '87.2%',
+            md: '84.2%',
           },
           marginTop: 8,
         })}
@@ -148,7 +148,7 @@ const Dashboard = () => {
       </AppBar>
     
 
-      <Box sx={{ paddingLeft: '210px', marginTop: '-10px' }}>
+      <Box sx={{ paddingLeft: '260px', marginTop: '80px' }}>
         <Grid container spacing={2}>
 
           <Grid item xs={12} sm={3}>

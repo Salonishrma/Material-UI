@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Drawer from '@mui/material/Drawer';
-import Hidden from '@mui/material/Hidden';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import List from '@mui/material/List';
+import List from  '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
-
 import BarChartIcon from '@mui/icons-material/BarChart';
 import PeopleIcon from '@mui/icons-material/People';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
@@ -22,57 +20,43 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
 const drawerWidth = 240; 
+const miniDrawerWidth = 60; 
 
-
-export default function ResponsiveDrawer({ open, onClose, children }) {
+export default function ResponsiveDrawer({ open, onClose, children, expanded }) {
   const drawerContent = (
     <Box
       sx={{
-        backgroundColor: '#002244', 
+        backgroundColor: '#002244',
         color: 'white',
-        padding: 2,
-        paddingTop: 8, 
+        padding: expanded ? 2 : 1,
+        paddingTop: expanded ? 8 : 3,  
       }}
     >
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column', 
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#073980',
-          padding: 1,
-          marginTop:1
-        }}
-      >
-        <Typography
-          variant="h5"
+      {expanded && (
+        <Box
           sx={{
-            fontWeight: 'bold',
-            fontSize: 20,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#073980',
+            padding: 1,
+            marginBottom: 2,  
           }}
         >
-          Devias
-        </Typography>
+          <Typography variant="h5" sx={{ fontWeight: 'bold', fontSize: 20 }}>
+            Devias
+          </Typography>
 
-        <Typography
-          variant="body1"
-          sx={{
-            fontSize: 16,
-          }}
-        >
-          Production
-        </Typography>
-      </Box>
+          <Typography variant="body1" sx={{ fontSize: 16 }}>
+            Production
+          </Typography>
+        </Box>
+      )}
 
-      <Divider
-        sx={{
-          backgroundColor: 'rgb(176,196,222)',
-          marginY: 1,
-        }}
-      />
+      <Divider sx={{ backgroundColor: 'rgb(176,196,222)', marginY: 1 }} />
 
-      <List>
+      <List sx={{ marginTop: expanded ? 1 : 4 }}> 
         {[
           { text: 'Overview', icon: <BarChartIcon /> },
           { text: 'Customers', icon: <PeopleIcon /> },
@@ -95,7 +79,7 @@ export default function ResponsiveDrawer({ open, onClose, children }) {
               }}
             >
               <ListItemIcon sx={{ color: 'white' }}>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
+              {expanded && <ListItemText primary={item.text} />}
             </ListItemButton>
           </ListItem>
         ))}
@@ -106,24 +90,21 @@ export default function ResponsiveDrawer({ open, onClose, children }) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      
-        <Drawer
-          variant="temporary"
-          open ={open}
-          onclose={onClose}
-          sx={{
-            '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
-              width: drawerWidth,
-              backgroundColor: '#002244', 
-            },
-          }}
-        >
-          {drawerContent}
-        </Drawer>
-        
 
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Drawer
+        variant="permanent"
+        sx={{
+          '& .MuiDrawer-paper': {
+            width: expanded ? drawerWidth : miniDrawerWidth,
+            boxSizing: 'border-box',
+            backgroundColor: '#002244',
+          },
+        }}
+      >
+        {drawerContent}
+      </Drawer>
+
+      <Box component="main" sx={{ flexGrow: 1, padding: 3 }}>
         <Toolbar />
         {children}
       </Box>
