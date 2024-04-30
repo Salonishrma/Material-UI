@@ -8,7 +8,7 @@ function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawer = () => {
-    setDrawerOpen(!drawerOpen);
+    setDrawerOpen((prev) => !prev);
   };
 
   return (

@@ -21,8 +21,8 @@ import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
-const drawerWidthLarge = 220; 
-const drawerWidthSmall = 190; 
+const drawerWidth = 240; 
+
 
 export default function ResponsiveDrawer({ open, onClose, children }) {
   const drawerContent = (
@@ -106,37 +106,22 @@ export default function ResponsiveDrawer({ open, onClose, children }) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <Hidden smDown>
-        <Drawer
-          variant="permanent"
-          sx={{
-            '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
-              width: drawerWidthLarge,
-              backgroundColor: '#002244', 
-            },
-          }}
-        >
-          {drawerContent}
-        </Drawer>
-      </Hidden>
-
-      <Hidden smUp>
+      
         <Drawer
           variant="temporary"
-          open={open}
-          onClose={onClose}
+          open ={open}
+          onclose={onClose}
           sx={{
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: drawerWidthSmall,
+              width: drawerWidth,
               backgroundColor: '#002244', 
             },
           }}
         >
           {drawerContent}
         </Drawer>
-      </Hidden>
+        
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />

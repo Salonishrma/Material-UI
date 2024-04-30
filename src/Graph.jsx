@@ -11,8 +11,8 @@ import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const chartSetting = {
-  width: 460,
-  height: 300,
+  width: 300,
+  height: 200,
   sx: {
     transform: 'translate(-20px, 0)',
   },
@@ -33,38 +33,41 @@ const dataset = [
   { sale1: 19, sale2: 15, month: 'Dec' },
 ];
 
+const pieColors = ['#4169E1', 'green', 'orange'];
+
 const data1 = [
   { label: 'Group A', value: 60 },
   { label: 'Group B', value: 15 },
   { label: 'Group C', value: 25 },
 ];
 
-const pieColors = ['#4169E1', 'green', 'orange'];
-
 export default function IntegratedGraph() {
   const isSmallScreen = useMediaQuery('(max-width:600px)'); 
+  const isLaptopScreen = useMediaQuery('(min-width:1024px)'); 
+
+  const salesCardWidth = isSmallScreen ? '90%' : isLaptopScreen ? '50%' : '70%'; 
+  const pieChartWidth = isSmallScreen ? '90%' : isLaptopScreen ? '50%' : '70%'; 
 
   return (
-    <Box sx={{ padding: '10px 0', marginTop: '20px',marginLeft:'-30px' }}>
+    <Box sx={{ padding: '10px', marginTop: '20px' }}>
       <Grid
         container
         spacing={isSmallScreen ? 1 : 3}
-        direction={isSmallScreen ? 'column' : 'row'} 
-        justifyContent={isSmallScreen ? 'center' : 'space-around'}
+        direction={isSmallScreen ? 'column' : 'row'}
+        justifyContent="center"
         alignItems={isSmallScreen ? 'stretch' : 'center'}
       >
         
-        <Grid item xs={isSmallScreen ? 12 : 6}>
+        <Grid item xs={12} sm={6}>
           <Box
             sx={{
               padding: '10px',
-        
               backgroundColor: 'white',
               borderRadius: '10px',
               boxShadow: 3,
               height: '400px', 
-              width: isSmallScreen ? '100%' : '420px', 
-              margin: isSmallScreen ? '0 auto' : 'auto',
+              width: salesCardWidth,
+              margin: 'auto',
             }}
           >
             <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -109,7 +112,7 @@ export default function IntegratedGraph() {
         </Grid>
 
        
-        <Grid item xs={isSmallScreen ? 12 : 4}>
+        <Grid item xs={12} sm={6}>
           <Box
             sx={{
               padding: '10px',
@@ -117,15 +120,15 @@ export default function IntegratedGraph() {
               borderRadius: '10px',
               boxShadow: 3,
               height: '400px', 
-              width: isSmallScreen ? '100%' : '270px', 
-              margin: isSmallScreen ? '0 auto' : '-10px',
+              width: pieChartWidth,
+              margin: 'auto',
             }}
           >
             <Typography
               variant="h6"
               sx={{
                 fontWeight: 'bold',
-                textAlign: isSmallScreen ? 'left' : 'left', 
+                textAlign: 'center',
               }}
             >
               Traffic Source
@@ -152,9 +155,9 @@ export default function IntegratedGraph() {
             <Box
               sx={{
                 display: 'flex',
-                flexDirection: isSmallScreen ? 'row' : 'row', 
-                justifyContent: isSmallScreen ? 'center' : 'space-between',
-                alignItems: isSmallScreen ? 'center' : 'stretch',
+                justifyContent: 'center', 
+                gap: 4,
+                paddingTop: 16, 
               }}
             >
               <Box sx={{ textAlign: 'center' }}>
@@ -183,6 +186,7 @@ export default function IntegratedGraph() {
             </Box>
           </Box>
         </Grid>
+
       </Grid>
     </Box>
   );
